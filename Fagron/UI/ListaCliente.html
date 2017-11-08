@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html ng-app="ClientesApp">
+<head>
+    <title>Clientes</title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+
+    <link rel="stylesheet" href="Content/LayoutCss.css" />
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+    <script src="Scripts/app.Cliente.js"></script>
+    <script src="Scripts/clientesController.js"></script>
+    <script src="Scripts/jquery-1.9.1.js"></script>
+
+</head>
+<body>
+    <script>
+
+    </script>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Fagron</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <ul class="dropdown-menu">
+                            <li><a href="">Gerenciar Clientes</a></li>
+                            <li><a href="">Novo Cliente</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+    <header>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <h2>Clientes</h2>
+                <hr />
+            </div>
+            <div class="col-sm-6 text-right h2">
+                <a class="btn btn-primary" href="CadCliente.html">
+                    <i class="fa fa-plus">
+                    </i> Novo Cliente
+                </a>
+                <a class="btn btn-default" href="ListaCliente.html">
+                    <i class="fa fa-refresh">
+                    </i> Atualizar
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div ng-controller="clientesController">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>SobreNome</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cliente in clientes">
+                        <td>{{cliente.Id}}</td>
+                        <td>{{cliente.Nome}}</td>
+                        <td>{{cliente.SobreNome}}</td>
+                        <td class="actions text-left">
+                            <a href="EditCliente.html" class="btn btn-sm btn-success">
+                                <i class="fa fa-eye"></i> Visualizar
+                            </a>
+                            <a href="#" class="btn btn-sm btn-warning">
+                                <i class="fa fa-pencil"></i> Editar
+                            </a>
+                            <a href="#" ng-click="deletaCliente(cliente.Id);" class="btn btn-sm btn-danger">
+                                <i class="fa fa-trash"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

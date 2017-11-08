@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html ng-app="ClientesApp">
+<head>
+    <title>Clientes</title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+
+    <link rel="stylesheet" href="Content/LayoutCss.css" />
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+    <script src="Scripts/app.Cliente.js"></script>
+    <script src="Scripts/clientesController.js"></script>
+    <script src="Scripts/jquery-1.9.1.js"></script>
+
+
+</head>
+<body>
+    <script>
+        function Voltar() {
+            document.getElementById('validacao').onchange();
+            
+        }
+        function VerificarInsercao() {
+            
+            alert(document.getElementById('validacao').value);
+        }
+    </script>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Fagron</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <ul class="dropdown-menu">
+                            <li><a href="">Gerenciar Clientes</a></li>
+                            <li><a href="">Novo Cliente</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <form id="formCadCliente">
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <h2>Cliente</h2>
+                <hr />
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-8" style="padding-left:85px">
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" ng-model="Nome" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Sobrenome</label>
+                    <input type="text" class="form-control" ng-model="Sobrenome" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="campo3">Data de Nascimento</label>
+                    <input type="date" class="form-control" ng-model="dataNascimento" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4" ng-controller="profissaoController">
+                    <label for="campo1">Profissão</label>
+                    <select class="form-control" style="position:relative" disabled>
+                        <option ng-repeat="profissao in profissoes" value="{{profissao.id}}">{{profissao.Descricao}}</option>
+                    </select>
+                </div>
+            </div>
+            <div id="actions" class="row">
+                    <a href="ListaCliente.html" id="btnRetornar" class="btn btn-default">Retornar</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1"></div>
+    </form>
+
+</body>
+</html>
